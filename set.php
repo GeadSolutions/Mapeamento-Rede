@@ -15,43 +15,31 @@ JOIN portas p1 ON p1.id = bindings.pp_porta JOIN portas p2 ON p2.id = bindings.s
 JOIN status s1 ON s1.id = p1.id_status 
 JOIN status s2 ON s2.id = p2.id_status 
 ORDER BY Setor ASC";
-
-echo '
-<div class="table-responsive">
-<table id="tabela" style="width:100%">
-	<thead class="thead-light">
-		<tr>
-			<th><strong>Pavimento</strong> </th>
-			<th><strong>Setor</strong> </th>
-			<th><strong>Tomada</strong> </th>
-			<th><strong>Porta do PP</strong> </th>
-			<th><strong>Status PP</strong> </th>
-			<th><strong>Porta do SW</strong> </th>
-			<th><strong>Status SW</strong> </th>
-			<th><strong>Tipo</strong> </th>
-		</tr>
-
-	</thead>
-	<tbody>';
+$data_json = "[";
+$i = 1;
 $a->queryFree($query);
 if ($result) {
+	$rows = $result->num_rows;
 	while ($linhas = $result->fetch_assoc()) {
-		echo ("
-			<tr>
-			<td>" . $linhas['Pavimento'] . "</td>
-			<td>" . $linhas['Setor'] . "</td>
-			<td>" . $linhas['Tomada'] . "</td>
-			<td>" . $linhas['Porta do PP'] . "</td>
-			<td>" . $linhas['Status PP'] . "</td>
-			<td>" . $linhas['Porta do SW'] . "</td>
-			<td>" . $linhas['Status SW'] . "</td>
-			<td>" . $linhas['Tipo'] . "</td>
-			</tr>
-			");
-	}
+		$data = array( 
+			$linhas['Pavimento'],
+			$linhas['Setor'],
+			$linhas['Tomada'],
+			$linhas['Porta do PP'],
+			$linhas['Status PP'],
+			$linhas['Porta do SW'],
+			$linhas['Status SW'],
+			$linhas['Tipo']
+		);
+		if($i < $rows){
+			$data_json .= json_encode($data).",";
+		}else{
+			$data_json .= json_encode($data);
+		}
+		$i++;
+	}	
+	echo $data_json."]";
 } else {
-	echo "<tr><td>Nenhum registro foi encontrado.</td></tr>";
+	echo "<tr><td colspan='8'>Nenhum registro foi encontrado.</td></tr>";
 }
-echo "</tbody>
-</table>
-</div>";					
+?>
