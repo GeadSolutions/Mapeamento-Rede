@@ -15,11 +15,10 @@ JOIN portas p1 ON p1.id = bindings.pp_porta JOIN portas p2 ON p2.id = bindings.s
 JOIN status s1 ON s1.id = p1.id_status 
 JOIN status s2 ON s2.id = p2.id_status 
 ORDER BY Setor ASC";
-$data_json = "[";
-$i = 1;
+$data_json = array();
+$i = 0;
 $a->queryFree($query);
 if ($result) {
-	$rows = $result->num_rows;
 	while ($linhas = $result->fetch_assoc()) {
 		$data = array( 
 			$linhas['Pavimento'],
@@ -31,14 +30,10 @@ if ($result) {
 			$linhas['Status SW'],
 			$linhas['Tipo']
 		);
-		if($i < $rows){
-			$data_json .= json_encode($data).",";
-		}else{
-			$data_json .= json_encode($data);
-		}
+		$data_json["data"][$i] = $data;
 		$i++;
 	}	
-	echo $data_json."]";
+	echo json_encode($data_json);	
 } else {
 	echo "<tr><td colspan='8'>Nenhum registro foi encontrado.</td></tr>";
 }
