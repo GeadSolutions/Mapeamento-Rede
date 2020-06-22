@@ -142,7 +142,9 @@ border-right-color:hsl(355, 70%, 91%) !important;
 }
 }
 
-
+.section-responsive{
+    padding: 1%;
+}
 
 @-webkit-keyframes spaceboots {
     0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
@@ -397,11 +399,20 @@ a {
 .logo{
 	float: left;
 	margin-top: 12px;
-	margin-left: 5px;
 	background-image: url("http://www.hsm.med.br/images/hospital_santamonica2.svg?crc=132376353");
 	background-repeat: no-repeat;
 	width: 120px;
 	height: auto;
+}
+#online{
+    padding: 5px;
+    background: #012901;
+    color: rgb(8, 233, 8);
+}
+#offline{
+    padding: 5px;
+    background: #aa0000;
+    color: #cc1f00;
 }
 .sidebar[data-color="rose"] li.active>a {
     background-color: #f56600;

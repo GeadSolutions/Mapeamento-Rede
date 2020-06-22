@@ -25,9 +25,9 @@ if ($result) {
 			$linhas['Setor'],
 			$linhas['Tomada'],
 			$linhas['Porta do PP'],
-			$linhas['Status PP'],
+			$a->colorStatus($linhas['Status PP']),
 			$linhas['Porta do SW'],
-			$linhas['Status SW'],
+			$a->colorStatus($linhas['Status SW']),
 			$linhas['Tipo']
 		);
 		$data_json["data"][$i] = $data;

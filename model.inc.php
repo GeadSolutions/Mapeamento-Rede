@@ -69,6 +69,15 @@ class Model{
 		} 
 	}	
 	
+	function colorStatus($status){
+		if($status == 'Online'){
+			$st = "<span id='online'>$status</span>";
+		}else{
+			$st = "<span id='offline'>$status</span>";
+		}
+		return $st;
+	}
+
 	function loginCliente($user, $senha){
 		#by Adan em 19 de julho de 2018 para acesso a ambiente de cliente.
 		global $mysqli;
