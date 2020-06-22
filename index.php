@@ -8,12 +8,14 @@
 	<meta content="Adan Ribeiro" name="author" />	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<!-- Folhas de estilo para o Datatables usando BS4 'geral e botões respectivamente' -->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-	
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/personal.css" />
 </head>
 <body>
+<div class="logo">&nbsp;</div>
+<h1>HSM - Mapeamento das ligações de cabos (Dados e Telefonia)</h1>
 <div class="table-responsive">
-	<table id="tabela" class="display" style="width:100%">
+	<table id="tabela" class="display" style="width:100%">		
 		<thead>
 			<tr>
 				<th>Pavimento </th>
