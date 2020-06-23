@@ -70,16 +70,15 @@ class Model{
 	}	
 	
 	function colorStatus($status){
-		$st = NULL;
-		$query_status = "SELECT * FROM status WHERE id='$status'";
+		$query_status = "SELECT * FROM status WHERE id = '$status'";
 		$foo = $this->queryFree($query_status);		
-		if($foo->num_rows > 0){
+		if($foo){
 			$tt = $foo->fetch_assoc();
 			$st = "<span id='$tt[id_css]' title='$tt[descritivo]'>$tt[status]</span>";
+			return $st;
 		}else{
-			$st = "<span>Erro</span>";			
-		}
-		return $st;
+			return false;			
+		}		
 	}
 
 	function loginCliente($user, $senha){
