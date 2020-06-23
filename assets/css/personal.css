@@ -412,7 +412,17 @@ a {
 #offline{
     padding: 5px;
     background: #aa0000;
-    color: #cc1f00;
+    color: #cc9900;
+}
+#unwork{
+    padding: 5px;
+    background: #996600;
+    color: #CC0000;
+}
+#inativo{
+    padding: 5px;
+    background: #0000aa;
+    color: #888888;
 }
 .sidebar[data-color="rose"] li.active>a {
     background-color: #f56600;

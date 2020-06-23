@@ -70,10 +70,14 @@ class Model{
 	}	
 	
 	function colorStatus($status){
-		if($status == 'Online'){
-			$st = "<span id='online'>$status</span>";
+		$st = NULL;
+		$query_status = "SELECT * FROM status WHERE id='$status'";
+		$foo = $this->queryFree($query_status);		
+		if($foo->num_rows > 0){
+			$tt = $foo->fetch_assoc();
+			$st = "<span id='$tt[id_css]' title='$tt[descritivo]'>$tt[status]</span>";
 		}else{
-			$st = "<span id='offline'>$status</span>";
+			$st = "<span>Erro</span>";			
 		}
 		return $st;
 	}

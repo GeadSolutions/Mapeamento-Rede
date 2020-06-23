@@ -10,6 +10,7 @@
 	<!-- Folhas de estilo para o Datatables usando BS4 'geral e botões respectivamente' -->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/personal.css" />
+	<title>Mapeador</title>
 </head>
 <body>
 <section class="section-responsive">
