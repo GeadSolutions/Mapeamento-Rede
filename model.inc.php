@@ -70,10 +70,12 @@ class Model{
 	}	
 	
 	function colorStatus($status){
+		global $mysqli;
+		global $st;
 		$query_status = "SELECT * FROM status WHERE id = '$status'";
-		$foo = $this->queryFree($query_status);		
-		if($foo){
-			$tt = $foo->fetch_assoc();
+		$mysql_result = $mysqli->query($query_status);
+		$tt = $mysql_result->fetch_assoc();
+		if($tt){
 			$st = "<span id='$tt[id_css]' title='$tt[descritivo]'>$tt[status]</span>";
 			return $st;
 		}else{
